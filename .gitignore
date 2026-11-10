@@ -1,6 +1,6 @@
 # Binaries
-pfrost
-pfrost.exe
+/pfrost
+/pfrost.exe
 *.exe
 *.dll
 *.so
