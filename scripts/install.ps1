@@ -21,11 +21,14 @@ if ($env:PROCESSOR_ARCHITECTURE -match "ARM64") {
 
 if ($Local -and (Test-Path ".\pfrost.cmd")) {
     Copy-Item -Force ".\pfrost.cmd" "$InstallDir\pfrost.cmd"
+    if (Test-Path ".\scripts\tui-win.js") {
+        Copy-Item -Force ".\scripts\tui-win.js" "$InstallDir\tui-win.js"
+    }
     $UserPath = [Environment]::GetEnvironmentVariable("Path", "User")
     if ($UserPath -notlike "*$InstallDir*") {
         [Environment]::SetEnvironmentVariable("Path", "$InstallDir;$UserPath", "User")
     }
-    Write-Host "[OK] Installed local pfrost launcher to $InstallDir\pfrost.cmd" -ForegroundColor Green
+    Write-Host "[OK] Installed local pfrost launcher and native TUI to $InstallDir" -ForegroundColor Green
     exit 0
 }
 
