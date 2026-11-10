@@ -1,0 +1,20 @@
+# Binaries
+pfrost
+pfrost.exe
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, built with `go test -c`
+*.test
+
+# Output of the go coverage tool
+*.out
+coverage.html
+
+# GoReleaser / dist
+dist/
+
+# Local test vaults
+.permafrost-test/

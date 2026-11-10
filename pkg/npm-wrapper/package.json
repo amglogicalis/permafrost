@@ -1,0 +1,33 @@
+{
+  "name": "pfrost",
+  "version": "0.5.0",
+  "description": "Permafrost (pfrost) — Universal Block-Deduplicated Version & Snapshot Manager CLI/TUI",
+  "keywords": [
+    "permafrost",
+    "pfrost",
+    "version-manager",
+    "snapshot",
+    "fastcdc",
+    "deduplication",
+    "terraform",
+    "cli",
+    "tui",
+    "zero-knowledge"
+  ],
+  "homepage": "https://github.com/amglogicalis/permafrost",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amglogicalis/permafrost.git"
+  },
+  "license": "MIT",
+  "author": "amglogicalis",
+  "bin": {
+    "pfrost": "./bin/pfrost.js"
+  },
+  "scripts": {
+    "postinstall": "node ./install.js"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

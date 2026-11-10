@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 540" width="100%">
+  <defs>
+    <style>
+      .term-bg { fill: #08101D; stroke: #1E4E79; stroke-width: 2; }
+      .term-header { fill: #0D1B2A; }
+      .mono { font-family: 'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace; font-size: 14px; fill: #E0E8F0; }
+      .cyan { fill: #00E5FF; font-weight: bold; }
+      .teal { fill: #00F5D4; font-weight: bold; }
+      .green { fill: #2EC4B6; font-weight: bold; }
+      .yellow { fill: #FF9F1C; font-weight: bold; }
+      .red { fill: #FF595E; font-weight: bold; }
+      .dim { fill: #6C859E; }
+      .tab-active { fill: #00E5FF; }
+      .tab-inactive { fill: #13315C; }
+      .tab-text-active { font-family: 'Cascadia Code', Consolas, monospace; font-size: 13px; fill: #050B14; font-weight: bold; }
+      .tab-text-inactive { font-family: 'Cascadia Code', Consolas, monospace; font-size: 13px; fill: #8DA9C4; }
+
+      @keyframes slide1 {
+        0%, 30% { opacity: 1; }
+        33%, 100% { opacity: 0; }
+      }
+      @keyframes slide2 {
+        0%, 30% { opacity: 0; }
+        33%, 63% { opacity: 1; }
+        66%, 100% { opacity: 0; }
+      }
+      @keyframes slide3 {
+        0%, 63% { opacity: 0; }
+        66%, 96% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      .screen-1 { animation: slide1 15s infinite; }
+      .screen-2 { animation: slide2 15s infinite; }
+      .screen-3 { animation: slide3 15s infinite; }
+    </style>
+  </defs>
+
+  <!-- Terminal Window Frame -->
+  <rect class="term-bg" width="1040" height="540" rx="14"/>
+  <path class="term-header" d="M 2 14 Q 2 2 14 2 L 1026 2 Q 1038 2 1038 14 L 1038 44 L 2 44 Z"/>
+  <circle cx="26" cy="23" r="7" fill="#FF5F56"/>
+  <circle cx="48" cy="23" r="7" fill="#FFBD2E"/>
+  <circle cx="70" cy="23" r="7" fill="#27C93F"/>
+  <text x="520" y="28" text-anchor="middle" class="mono dim" font-size="13">pfrost — Interactive Terminal Time Machine (~/.permafrost)</text>
+
+  <!-- ===================================================================== -->
+  <!-- SCREEN 1: TUI SNAPSHOTS TIMELINE & HOT-SWAP                           -->
+  <!-- ===================================================================== -->
+  <g class="screen-1" transform="translate(28, 68)">
+    <rect x="0" y="0" width="984" height="32" rx="6" fill="#0B2545"/>
+    <text x="16" y="21" class="mono cyan">❄ PERMAFROST (pfrost)  •  Proyectos: 3  •  Snapshots: 14  •  Ahorro Deduplicación: 86.4%</text>
+
+    <!-- Tabs -->
+    <g transform="translate(0, 46)">
+      <rect x="0" y="0" width="230" height="28" rx="5" class="tab-active"/>
+      <text x="14" y="19" class="tab-text-active">[1] ❄ Versiones &amp; Snapshots</text>
+
+      <rect x="240" y="0" width="275" height="28" rx="5" class="tab-inactive"/>
+      <text x="254" y="19" class="tab-text-inactive">[2] 🔍 Time-Travel Diff &amp; Pick</text>
+
+      <rect x="525" y="0" width="235" height="28" rx="5" class="tab-inactive"/>
+      <text x="539" y="19" class="tab-text-inactive">[3] ⚙ Feature Center (ON/OFF)</text>
+
+      <rect x="770" y="0" width="214" height="28" rx="5" class="tab-inactive"/>
+      <text x="784" y="19" class="tab-text-inactive">[4] 🛡 Auditoría &amp; Vault</text>
+    </g>
+
+    <!-- Content Box -->
+    <rect x="0" y="88" width="984" height="330" rx="8" fill="#060D18" stroke="#1E6091" stroke-width="1.5"/>
+    <text x="20" y="118" class="mono">Proyecto Activo (1/3): <tspan class="teal">cloud-infra-stack</tspan> <tspan class="dim">(C:\projects\cloud-infra-stack)</tspan></text>
+    <line x1="20" y1="130" x2="964" y2="130" stroke="#13315C" stroke-width="1"/>
+
+    <text x="20" y="160" class="mono teal">❯ [*] v2.1-canary  │ snap_20261110_150412_9f8a1c │  148 arch │ Nuevo: 312 KB   (Ahorro 98.4%) │ Antes de migrar RDS</text>
+    <text x="20" y="190" class="mono">      v2.0-prod    │ snap_20261109_182011_4c1e8b │  146 arch │ Nuevo: 1.42 MB  (Ahorro 92.8%) │ Release estable producción</text>
+    <text x="20" y="220" class="mono">      v1.9-hotfix  │ snap_20261108_110509_7a3d20 │  145 arch │ Nuevo: 184 KB   (Ahorro 99.1%) │ Parche proveedor Terraform</text>
+    <text x="20" y="250" class="mono">      v1.0-base    │ snap_20261101_090000_1b9f44 │  142 arch │ Nuevo: 6.80 MB  (Ahorro 65.5%) │ Estado inicial completo</text>
+
+    <line x1="20" y1="280" x2="964" y2="280" stroke="#13315C" stroke-width="1"/>
+    <text x="20" y="310" class="mono">Vista Previa Time-Travel Diff (Carpeta Actual ➔ v2.0-prod):</text>
+    <text x="20" y="338" class="mono">  <tspan class="green">🟢 +1 creados</tspan>   │   <tspan class="yellow">🟡 ~3 modificados</tspan>   │   <tspan class="red">🔴 -2 eliminados</tspan>   │   <tspan class="dim">⚪ 142 intactos (0 I/O al cambiar)</tspan></text>
+    <text x="20" y="375" class="mono teal">ℹ ⚡ Safe Switch [ON]: Cualquier cambio sin guardar se respaldará en Auto-Stash antes de saltar.</text>
+
+    <text x="0" y="445" class="mono dim">Atajos: [Tab/1-4] Pestañas • [↑/↓] Navegar • [f] Congelar • [Enter/s] Cambiar Versión • [d] Diff/Cherry-Pick • [c] Módulos ON/OFF • [q] Salir</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- SCREEN 2: TIME-TRAVEL DIFF & FEATURE CENTER (TOGGLEABLE ON/OFF)       -->
+  <!-- ===================================================================== -->
+  <g class="screen-2" transform="translate(28, 68)">
+    <rect x="0" y="0" width="984" height="32" rx="6" fill="#0B2545"/>
+    <text x="16" y="21" class="mono cyan">❄ PERMAFROST (pfrost)  •  Time-Travel Diff &amp; Cherry-Pick  +  Feature Center [ON/OFF]</text>
+
+    <!-- Tabs -->
+    <g transform="translate(0, 46)">
+      <rect x="0" y="0" width="230" height="28" rx="5" class="tab-inactive"/>
+      <text x="14" y="19" class="tab-text-inactive">[1] ❄ Versiones &amp; Snapshots</text>
+
+      <rect x="240" y="0" width="275" height="28" rx="5" class="tab-active"/>
+      <text x="254" y="19" class="tab-text-active">[2] 🔍 Time-Travel Diff &amp; Pick</text>
+
+      <rect x="525" y="0" width="235" height="28" rx="5" class="tab-active"/>
+      <text x="539" y="19" class="tab-text-active">[3] ⚙ Feature Center (ON/OFF)</text>
+
+      <rect x="770" y="0" width="214" height="28" rx="5" class="tab-inactive"/>
+      <text x="784" y="19" class="tab-text-inactive">[4] 🛡 Auditoría &amp; Vault</text>
+    </g>
+
+    <rect x="0" y="88" width="984" height="158" rx="8" fill="#060D18" stroke="#1E6091" stroke-width="1.5"/>
+    <text x="20" y="114" class="mono cyan">🔍 Cherry-Pick Selectivo (Marca con [Espacio] y pulsa [r] para traer solo esos archivos):</text>
+    <text x="20" y="142" class="mono teal">❯ [✓] 🟡 ~ MODIFICADO │ .env.production                           │   1.42 KB (-128 B)</text>
+    <text x="20" y="168" class="mono">  [✓] 🟡 ~ MODIFICADO │ infra/terraform.tfstate                   │ 418.20 KB (+4.1 KB)</text>
+    <text x="20" y="194" class="mono">  [ ] 🟢 + CREADO     │ migrations/20261110_add_index.sql         │   2.80 KB (nuevo)</text>
+    <text x="20" y="220" class="mono">  [ ] 🔴 - ELIMINADO  │ legacy/old_worker.go                      │  -8.40 KB</text>
+
+    <rect x="0" y="258" width="984" height="162" rx="8" fill="#060D18" stroke="#1E6091" stroke-width="1.5"/>
+    <text x="20" y="284" class="mono cyan">⚙ Módulos 100% Activables, Desactivables y Transparentes (~/.permafrost/config.json):</text>
+    <text x="20" y="312" class="mono"><tspan class="green">[ON ]</tspan> Safe Switch (Auto-Stash)          │ <tspan class="green">[ON ]</tspan> Hooks Pre-Freeze / Post-Switch (.permafrost.yaml)</text>
+    <text x="20" y="340" class="mono"><tspan class="green">[ON ]</tspan> Time-Travel Visual Diff           │ <tspan class="green">[ON ]</tspan> Zero-Knowledge Cloud Encryption (AES-256-GCM)</text>
+    <text x="20" y="368" class="mono"><tspan class="green">[ON ]</tspan> Teleport (Instant Share Capsules) │ <tspan class="green">[ON ]</tspan> Permafrost Global Binaries (~/.permafrost/bin)</text>
+    <text x="20" y="398" class="mono teal">🍒 Cherry-Pick completado: '.env.production' y 'infra/terraform.tfstate' restaurados en 4 ms.</text>
+
+    <text x="0" y="445" class="mono dim">Pulsa [Espacio] para marcar archivos o alternar módulos [ON/OFF] al instante con registro en audit.log</text>
+  </g>
+
+  <!-- ===================================================================== -->
+  <!-- SCREEN 3: CLI POWER COMMANDS (SAFE SWITCH + CLOUD + TELEPORT)         -->
+  <!-- ===================================================================== -->
+  <g class="screen-3" transform="translate(28, 68)">
+    <text x="0" y="22" class="mono"><tspan class="cyan">PS C:\cloud-infra&gt;</tspan> pfrost switch v2.0-prod</text>
+    <text x="0" y="48" class="mono teal">🛡 Safe Switch [ON]: Detectados cambios sin congelar (+1 ~2 -0). Auto-stash creado: auto-pre-v2.0-prod-150422</text>
+    <text x="0" y="72" class="mono green">  ✔ [Hook pre_switch] `echo "Stopping local services..."` (8 ms)</text>
+    <text x="0" y="96" class="mono green">⚡ Cambio de versión completado: v2.0-prod (snap_20261109_182011_4c1e8b)</text>
+    <text x="0" y="120" class="mono">  • Modificados: 2  │  Intactos (omitidos): 144 (0 I/O fast-skip)  │  Tiempo: 9 ms</text>
+
+    <text x="0" y="162" class="mono"><tspan class="cyan">PS C:\cloud-infra&gt;</tspan> pfrost cloud push v2.0-prod --key pfk_8a92c4e1...</text>
+    <text x="0" y="188" class="mono green">☁ Snapshot subido con éxito a GitHub Releases (amglogicalis/permafrost-vault):</text>
+    <text x="0" y="212" class="mono">  • Release Key: pfrost-cloud-infra-v2.0-prod  │  Fragmentos: 1 chunk (&lt;2GB)  │  Cifrado ZK: 🔒 AES-256-GCM</text>
+
+    <text x="0" y="254" class="mono"><tspan class="cyan">PS C:\cloud-infra&gt;</tspan> pfrost teleport send v2.0-prod --key pfk_8a92c4e1...</text>
+    <text x="0" y="280" class="mono green">🚀 Cápsula Teleport creada con éxito: tp_9f82a1c4 (🔒 Cifrado Zero-Knowledge AES-256-GCM)</text>
+    <text x="0" y="304" class="mono">  • Comando para tu compañero:  <tspan class="cyan">pfrost teleport receive tp_9f82a1c4 ./mi-entorno --key pfk_8a92c4e1...</tspan></text>
+
+    <text x="0" y="346" class="mono"><tspan class="cyan">PS C:\cloud-infra&gt;</tspan> pfrost bin use terraform v1.8.0</text>
+    <text x="0" y="372" class="mono green">⚡ Herramienta global terraform cambiada a la versión v1.8.0 en ~/.permafrost/bin/terraform.exe (3 ms)</text>
+
+    <text x="0" y="425" class="mono teal">❄ Todo queda auditado de forma transparente en ~/.permafrost/audit.log</text>
+  </g>
+</svg>
